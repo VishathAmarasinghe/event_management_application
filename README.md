@@ -1,7 +1,5 @@
 # PulseEvent-Event Management Platfrom
-<br>
 <hr>
-<h2>full-stack simple blog Website using MERN Stack.</h2>
 <br>
 <img src="screenshots/hero page.png" >
 <br>
