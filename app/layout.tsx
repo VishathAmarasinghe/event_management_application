@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import {
-  ClerkProvider
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,10 +10,10 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Evenlty",
+  title: "PulseEvent",
   description: "event management platform",
   icons: {
-    icon: "/assets/images/logo.svg",
+    icon: "/assets/images/logoIcon.png",
   },
 };
 
@@ -27,9 +25,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={poppins.variable}>
-          {children}
-        </body>
+        <body className={poppins.variable}>{children}</body>
       </html>
     </ClerkProvider>
   );

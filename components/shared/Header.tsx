@@ -1,42 +1,48 @@
-import { SignedIn, SignedOut, SignIn, UserButton } from '@clerk/nextjs'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import { Button } from '../ui/button'
-import NavItems from './NavItems'
-import MobileNav from './MobileNav'
+import { SignedIn, SignedOut, SignIn, UserButton } from "@clerk/nextjs";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { Button } from "../ui/button";
+import NavItems from "./NavItems";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   return (
-    <header className='w-full border-b'>
-        <div className='wrapper flex items-center justify-between '>
-            <Link href="/" className='w-36'>
-                <Image src='/assets/images/logo.svg' alt='logo' width={128} height={36} />
-            </Link>
-            <div className='flex w-full  justify-end gap-3'>
+    <header className="w-full border-b">
+      <div className="wrapper flex items-center justify-between ">
+        <Link href="/" className="w-36">
+          <Image
+            src="/assets/images/logo.png"
+            alt="logo"
+            width={145}
+            height={50}
+            className="w-[165px] "
+          />
+        </Link>
+        <div className="flex w-full  justify-end gap-3">
+          <SignedIn>
+            <nav className="md:flex-between  hidden w-full max-w-xs">
+              <NavItems />
+            </nav>
+          </SignedIn>
 
-                <SignedIn>
-                    <nav className='md:flex-between  hidden w-full max-w-xs'>
-                        <NavItems/>
-                    </nav>
-                </SignedIn>
-
-                <SignedIn>
-                    <UserButton afterSignOutUrl='/' />
-                    <MobileNav/>
-                </SignedIn>
-                <SignedOut>
-                    <Button asChild className='rounded-full ' size="lg">
-                        <Link href="/sign-in">
-                        Login
-                        </Link>
-                    </Button>
-                </SignedOut>
-            </div>
-
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+            <MobileNav />
+          </SignedIn>
+          <SignedOut>
+            <Button
+              asChild
+              className="rounded-full bg-[#fd5b00] hover:bg-[#ff6c00]"
+              size="lg"
+            >
+              <Link href="/sign-in">Login</Link>
+            </Button>
+          </SignedOut>
         </div>
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
